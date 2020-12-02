@@ -302,7 +302,7 @@ class Network(torch.nn.Module):
         injects_v = kwargs.get("injects_v", {})
 
         # Compute reward.
-        if self.reward_fn is not None:
+        if self.learning and self.reward_fn is not None:
             kwargs["reward"] = self.reward_fn.compute(**kwargs)
 
         # Dynamic setting of batch size.

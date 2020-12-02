@@ -750,7 +750,7 @@ class MSTDPET(LearningRule):
             )
 
         # Reshape pre- and post-synaptic spikes.
-        source_s = self.source.s.view(-1).float()
+        source_s = self.source.s.contiguous().view(-1).float()
         target_s = self.target.s.view(-1).float()
 
         # Parse keyword arguments.
